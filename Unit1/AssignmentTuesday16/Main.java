@@ -2,12 +2,15 @@ package Unit1.AssignmentTuesday16;
 
 import java.time.LocalDate;
 import java.util.Scanner;
+import java.math.BigInteger;
 
 public class Main {
 
     public static Scanner in = new Scanner(System.in);
     public static void main(String[] args){
-        p1();
+        for (int i = 1; i <= 100; i++){
+            p2(i);
+        }
     }
 
     public static void p1(){
@@ -18,12 +21,12 @@ public class Main {
         System.out.printf("There are %d days in the month of %s\n", days.lengthOfMonth(), days.getMonth().toString());
     }
 
-    public static void p2(){
-        System.out.print("Enter a number from 1-20: ");
-        int number = in.nextInt();
-        int factorial = 1;
+    public static void p2(int number){
+        // System.out.print("Enter a number from 1-20: ");
+        // int number = in.nextInt();
+        BigInteger factorial = new BigInteger("1");
         for (int i = 1; i <= number; i++){
-            factorial *= i;
+            factorial = factorial.multiply(new BigInteger(Integer.toString(i)));
         }
         System.out.printf("The factorial of %d is %d\n", number, factorial);
     }
@@ -38,7 +41,7 @@ public class Main {
         System.out.printf("The GCD of %d and %d is %d", a, b, gcd(a, b));
     }
 
-    public static int gcd(int a, int b){
+    public static int gcd(int a, int b){ // 16 / 48
         if (b == 0){
             return a;
         }
