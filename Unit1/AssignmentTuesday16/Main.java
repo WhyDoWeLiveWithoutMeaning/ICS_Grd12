@@ -7,14 +7,14 @@ public class Main {
 
     public static Scanner in = new Scanner(System.in);
     public static void main(String[] args){
-        p3();
+        p1();
     }
 
     public static void p1(){
         System.out.print("Which month were you born? (1-12): ");
-        int name = in.nextInt();
+        int month = in.nextInt();
 
-        LocalDate days = LocalDate.of(2019, name, 1);
+        LocalDate days = LocalDate.of(2019, month, 1);
         System.out.printf("There are %d days in the month of %s\n", days.lengthOfMonth(), days.getMonth().toString());
     }
 
