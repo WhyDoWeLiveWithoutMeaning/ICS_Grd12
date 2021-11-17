@@ -11,7 +11,6 @@ public class Main {
         p3();
     }
 
-    //Using Local Date
     public static void p1(){
         System.out.print("Which month were you born? (1-12): ");
         int month = in.nextInt();
@@ -20,47 +19,12 @@ public class Main {
         System.out.printf("There are %d days in the month of %s\n", days.lengthOfMonth(), days.getMonth().toString());
     }
 
-    // Without LocalDate, With Switch
-    public static void p12(){
-        System.out.print("Which month were you born? (1-12): ");
-        int month = in.nextInt();
-
-        switch(month){
-            case 1: month = 30;
-            case 2: month = 28;
-            case 3: month = 30;
-            case 4: month = 31;
-            case 5: month = 30;
-            case 6: month = 31;
-            case 7: month = 30;
-            case 8: month = 31;
-            case 9: month = 30;
-            case 10: month = 31;
-            case 11: month = 30;
-            case 12: month = 31;
-        }
-
-        System.out.println(month);
-    }
-
-    // With BigInteger
     public static void p2(){
         System.out.print("Enter a number from 1-20: ");
         int number = in.nextInt();
         BigInteger factorial = new BigInteger("1");
         for (int i = 1; i <= number; i++){
             factorial = factorial.multiply(new BigInteger(Integer.toString(i)));
-        }
-        System.out.printf("The factorial of %d is %d\n", number, factorial);
-    }
-
-    // Without BigInteger
-    public static void p22(){
-        System.out.print("Enter a number from 1-20: ");
-        int number = in.nextInt();
-        int factorial = 1;
-        for (int i = 1; i <= number; i++){
-            factorial *= i;
         }
         System.out.printf("The factorial of %d is %d\n", number, factorial);
     }
