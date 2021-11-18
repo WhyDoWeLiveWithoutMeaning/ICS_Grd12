@@ -8,14 +8,13 @@ public class Main {
 
     public static Scanner in = new Scanner(System.in);
     public static void main(String[] args){
-        p3();
+        p2();
     }
 
     public static void p1(){
         System.out.print("Which month were you born? (1-12): ");
         int month = in.nextInt();
-
-        LocalDate days = LocalDate.of(2019, month, 1);
+        LocalDate days = LocalDate.of(2021, month, 1);
         System.out.printf("There are %d days in the month of %s\n", days.lengthOfMonth(), days.getMonth().toString());
     }
 
@@ -24,7 +23,7 @@ public class Main {
         int number = in.nextInt();
         BigInteger factorial = new BigInteger("1");
         for (int i = 1; i <= number; i++){
-            factorial = factorial.multiply(new BigInteger(Integer.toString(i)));
+            factorial = factorial.multiply(BigInteger.valueOf(Integer.valueOf(i)));
         }
         System.out.printf("The factorial of %d is %d\n", number, factorial);
     }
@@ -36,27 +35,14 @@ public class Main {
         System.out.print("Enter a number: ");
         int b = in.nextInt();
 
-        System.out.printf("The GCD of %d and %d is %d", a, b, gcd2(a, b));
+        System.out.printf("The GCD of %d and %d is %d", a, b, gcd(a, b));
     }
 
-
-    // Method 1 Using Recursion
     public static int gcd(int a, int b){
         if (b == 0){
             return a;
         }
         return gcd(b, a % b);
-    }
-
-    // Method 2 Without Recrusion
-    public static int gcd2(int a, int b){
-        int min = Math.min(a, b);
-        int max = Math.max(a, b);
-        while (max % min != 0){
-            min = max;
-            max = min % max;
-        }
-        return min;
     }
 
     public static void p4(){
