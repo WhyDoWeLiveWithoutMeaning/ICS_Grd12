@@ -10,8 +10,8 @@ import javax.swing.event.MouseInputListener;
 
 public class Main extends JPanel implements MouseInputListener, KeyListener {
 
-    private static final int HEIGHT = 600;
-    private static final int WIDTH = 600;
+    private static final int HEIGHT = 1080;
+    private static final int WIDTH = 1920;
 
     static JFrame frame = new JFrame("Conways Game of Life");
 
