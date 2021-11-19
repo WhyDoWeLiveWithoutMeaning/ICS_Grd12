@@ -5,7 +5,7 @@ package Unit1.Pyramid;
  * @author Eric Beaulne
  */
 
-public class Pyramid {
+public class Pyramid implements Comparable<Pyramid> {
 
     // Variables
     private double length;
@@ -93,5 +93,16 @@ public class Pyramid {
         Pyramid p = (Pyramid) o;
 
         return (this.length == p.getLength() && this.width == p.getWidth() && this.height == p.getHeight());
+    }
+
+    @Override
+    public int compareTo(Pyramid p) {
+        if (this.getVolume() > p.getVolume()){
+            return 1;
+        } else if (this.getVolume() < p.getVolume()){
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }

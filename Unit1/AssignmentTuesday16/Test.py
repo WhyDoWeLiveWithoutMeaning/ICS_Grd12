@@ -1,11 +1,5 @@
-"""
-This is a program that I built to devide Polynomial Functions by other Polynomial Functions.
-"""
 
-
-from typing import List, Union
-
-def formatLetters(inputText: str) -> List[Union[int, float]]:
+def formatLetters(inputText):
     """
     This function takes a string of letters and returns a list of integers
     and, split by spaces, converts them into integers and returns a list of
@@ -14,7 +8,7 @@ def formatLetters(inputText: str) -> List[Union[int, float]]:
     return [float(i) for i in inputText.split()]
 
 ## Function that converts a float to an int if it is exactly equal to an int
-def convertToInt(num: float) -> Union[int, float]:
+def convertToInt(num):
     if num == int(num):
         return int(num)
     else:
@@ -49,7 +43,7 @@ def listToEquation(list):
     return equation
     
 
-def syntheticSolve(dividend: List[float], divisor: List[float]) -> str:
+def syntheticSolve(dividend, divisor):
     """
     This function takes two lists of floats and returns a list of floats that
     were the result of synthetic division.
@@ -80,11 +74,10 @@ def syntheticSolve(dividend: List[float], divisor: List[float]) -> str:
             resultOfMath += balance[j][i]
         resultOfMath += dividend[i]
         result.append(resultOfMath)
-        for j in range(len(balance)): # 5 - (5 - 5 + 1) = 5 - 1
-            currIndex = len(dividend) - (len(dividend) - (i) + (j+1))
-            if len(balance[j]) - (j+1) >= len(divisor):
+        for j in range(len(balance)): 
+            if len(balance[j]) - j > len(dividend)-1:
                 balance[j].append(0)
-            elif currIndex < len(dividend) - (1+j):
+            else:
                 balance[j].append(resultOfMath * divisor[j+1] * -1)
                 
 
@@ -93,7 +86,10 @@ def syntheticSolve(dividend: List[float], divisor: List[float]) -> str:
 
     # Set Remainder to the last element of the result array then remove it from the result array
     remainder = result[(len(divisor)-1)*-1:]
-    [result.pop() for i in range(len(divisor))]
+    [result.pop() for i in range(len(remainder))]
+
+    print(result)
+    print(remainder)
 
     # Divide the result array by divisor[0]
     for i in range(len(result)):
@@ -107,10 +103,6 @@ def syntheticSolve(dividend: List[float], divisor: List[float]) -> str:
 
     return finalString
 
-def main():
-    dividend = formatLetters(input("Enter the dividend: "))
-    divisor = formatLetters(input("Enter the divisor: "))
-    print(syntheticSolve(dividend, divisor))
-
-if __name__ == "__main__":
-    main()
+dividend = formatLetters(input("Enter the dividend: "))
+divisor = formatLetters(input("Enter the divisor: "))
+print(syntheticSolve(dividend, divisor))

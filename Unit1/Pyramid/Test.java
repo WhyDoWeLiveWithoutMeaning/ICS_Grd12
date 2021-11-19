@@ -24,5 +24,7 @@ public class Test {
 
         System.out.printf("Does P1 == P2: %b\n", p2.equals(p1));
         System.out.printf("Does P2 == P3: %b\n", p2.equals(p3));
+
+        System.out.println("P1 compared to P2: " + p2.compareTo(p1));
     }
 }
