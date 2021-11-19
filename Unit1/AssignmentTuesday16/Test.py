@@ -18,7 +18,7 @@ def convertToInt(num: float) -> Union[int, float]:
     if num == int(num):
         return int(num)
     else:
-        return 
+        return num
         
 def listToEquation(list):
     """
