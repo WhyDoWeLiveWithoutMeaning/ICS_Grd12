@@ -38,9 +38,9 @@ public class Pyramid implements Comparable<Pyramid> {
     }
 
     public Pyramid(Pyramid p) {
-        this.length = p.getLength();
-        this.width = p.getWidth();
-        this.height = p.getHeight();
+        this.length = p.length;
+        this.width = p.width;
+        this.height = p.height;
     }
 
     // Getters
@@ -92,7 +92,7 @@ public class Pyramid implements Comparable<Pyramid> {
 
         Pyramid p = (Pyramid) o;
 
-        return (this.length == p.getLength() && this.width == p.getWidth() && this.height == p.getHeight());
+        return (this.length == p.length && this.width == p.width && this.height == p.height);
     }
 
     @Override
