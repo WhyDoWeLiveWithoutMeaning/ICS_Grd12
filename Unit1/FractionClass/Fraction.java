@@ -110,5 +110,4 @@ public class Fraction {
         this.reduce();
         return (this.num+30) * this.den;
     }
-
 }
