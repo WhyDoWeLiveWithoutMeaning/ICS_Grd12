@@ -11,24 +11,8 @@ public class Main {
             int a = in.nextInt();
             int b = in.nextInt();
             int c = in.nextInt();
-
-            b = b%2;
-            while(a > 1 && b > 0){
-                a -= 2;
-                b--;
-            }
-            while (c > 0 && a > 0){
-                a--;
-                c--;
-            }
-            while(a > 0 && b > 0 && c > 0){
-                a--;
-                b--;
-                c--;
-            }
-            a = a%2;
             
-            if (a + b + c == 0){
+            if (a+b+c % 2 == 0 || a >= c && (b % 2 == 0 || c == 1)){
                 System.out.println("YES");
             } else {
                 System.out.println("NO");

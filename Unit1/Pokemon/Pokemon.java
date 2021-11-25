@@ -43,6 +43,62 @@ public class Pokemon {
     public static final int STEEL = 16;
     public static final int FAIRY = 17;
 
+    // Console Color Values
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
+
+    // Return the type name as a string
+    private static String typeToString(int type) {
+        switch (type) {
+            case NORMAL:
+                return "Normal";
+            case FIRE:
+                return ANSI_RED + "Fire" + ANSI_RESET;
+            case WATER:
+                return ANSI_BLUE + "Water" + ANSI_RESET;
+            case ELECTRIC:
+                return ANSI_YELLOW + "Electric" + ANSI_RESET;
+            case GRASS:
+                return ANSI_GREEN + "Grass" + ANSI_RESET;
+            case ICE:
+                return ANSI_WHITE + "Ice" + ANSI_RESET;
+            case FIGHTING:
+                return "Fighting";
+            case POISON:
+                return ANSI_PURPLE + "Poison" + ANSI_RESET;
+            case GROUND:
+                return "Ground";
+            case FLYING:
+                return "Flying";
+            case PSYCHIC:
+                return ANSI_PURPLE + "Psychic" + ANSI_RESET;
+            case BUG:
+                return ANSI_GREEN + "Bug" + ANSI_RESET;
+            case ROCK:
+                return "Rock";
+            case GHOST:
+                return ANSI_WHITE + "Ghost" + ANSI_RESET;
+            case DRAGON:
+                return ANSI_RED + "Dragon" + ANSI_RESET;
+            case DARK:
+                return "Dark";
+            case STEEL:
+                return "Steel";
+            case FAIRY:
+                return "Fairy";
+            default:
+                return "Unknown";
+        }
+    }
+
+
     // Variables
     private String name;
     private int type;
@@ -152,7 +208,14 @@ public class Pokemon {
     // Methods
     @Override
     public String toString() {
-        return "Pokemon [" + "name='" + name + '\'' + ", type=" + type + ", hp=" + hp + ", attack=" + attack + ", defense=" + defense + ']';
+        String s = String.format("%s [%s]\n", this.name, Pokemon.typeToString(this.type));
+        int len = s.length();
+        for (int i = 0; i < len; i++) s += "-";
+        s += "\n";
+        s += String.format("HP: %d\n", this.hp);
+        s += String.format("Attack: %d\n", this.attack);
+        s += String.format("Defense: %d\n", this.defense);
+        return s;
     }
 
     @Override
