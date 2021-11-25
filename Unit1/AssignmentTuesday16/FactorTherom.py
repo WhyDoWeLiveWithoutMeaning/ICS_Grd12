@@ -35,20 +35,20 @@ def findPotentialZeroes(p, q):
             potentialFactors.append(p[i]/q[j])
     return potentialFactors
 
-def plugZeroes(equation, zeroes):
+def plugZeroes(equation, Potentialzeroes):
     """
     This function takes an equation and a list of potential zeroes and returns the equation with the zeroes plugged in
     """
     zeroes = []
-    for i in range(len(zeroes)):
+    for i in range(len(Potentialzeroes)):
         val = 0
         for j in range(len(equation)):
             if j < len(equation) - 1:
-                val += equation[j] * zeroes[i] ** (len(equation) - j - 1)
+                val += equation[j] * Potentialzeroes[i] ** (len(equation) - j - 1)
             else:
                 val += equation[j]
         if val == 0 and val not in zeroes:
-            zeroes.append(zeroes[i])
+            zeroes.append(Potentialzeroes[i])
     return zeroes
 
 def findZeroes(equation):
@@ -57,15 +57,8 @@ def findZeroes(equation):
     """
     pFactors = factors(equation[0])
     qFactors = factors(equation[-1])
-    potentialZeroes = findPotentialZeroes(pFactors, qFactors)
+    potentialZeroes = findPotentialZeroes(qFactors, pFactors)
     zeroes = plugZeroes(equation, potentialZeroes)
     return zeroes
 
-def main():
-   print(findZeroes(formatLetters(input("Enter the equation: "))))
-    
-
-
-
-if __name__ == '__main__':
-    main()
+print(findZeroes(formatLetters(input("Enter the equation: "))))

@@ -70,7 +70,7 @@ public class Fraction {
     }
 
     public Fraction divide(Fraction f){
-        Fraction r = new Fraction(this.num / f.den, this.den / f.num);
+        Fraction r = new Fraction(this.num * f.den, this.den * f.num);
         r.reduce();
         return r;
     }
@@ -103,6 +103,12 @@ public class Fraction {
             return f1.num == f2.num && f1.den == f2.den;
         }
         return false;
+    }
+
+    @Override
+    public int hashCode(){
+        this.reduce();
+        return (this.num+30) * this.den;
     }
 
 }
