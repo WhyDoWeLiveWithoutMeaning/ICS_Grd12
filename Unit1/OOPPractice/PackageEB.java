@@ -55,9 +55,9 @@ public class PackageEB {
         else
             price = FEDEX;
 
-        cost = price * weight;
+        cost = price * this.weight;
 
-        if (weight > 4.0) 
+        if (this.weight > 4.0) 
             cost += TOOBIG;
 
         return cost;
