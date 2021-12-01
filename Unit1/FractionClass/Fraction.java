@@ -104,10 +104,4 @@ public class Fraction {
         }
         return false;
     }
-
-    @Override
-    public int hashCode(){
-        this.reduce();
-        return (this.num+30) * this.den;
-    }
 }
