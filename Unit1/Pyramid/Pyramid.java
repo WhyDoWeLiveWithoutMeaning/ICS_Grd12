@@ -105,4 +105,4 @@ public class Pyramid implements Comparable<Pyramid> {
             return 0;
         }
     }
-}
+} 
