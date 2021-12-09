@@ -1,6 +1,6 @@
 package Unit2.InterfaceAssignment;
 
-interface Player {
+public interface Player {
     public String play();
 
     public String respondToCoach();

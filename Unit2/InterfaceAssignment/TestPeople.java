@@ -6,10 +6,6 @@ package Unit2.InterfaceAssignment;
  * persons, living or dead, or actual events is purely coincidental.
  */
 
-
-
-
-
 public class TestPeople
 {
 	public static void main(String[] args)
