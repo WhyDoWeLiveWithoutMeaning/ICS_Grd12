@@ -35,9 +35,9 @@ public class Snake extends Pet
 	}
 
 	public int compareTo(Snake s){
-		int name = super.compareTo(s);
+		int name = this.length - s.length;
 		if(name == 0){
-			return this.length - s.length;
+			return super.compareTo(s);
 		} else {
 			return name;
 		}

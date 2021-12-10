@@ -16,9 +16,12 @@ public class PetTest
 		
 		Snake s1 = new Snake("Gilbert",200);
 		Snake s2 = new Snake("Sasha", 209);
-		Snake s3 = new Snake("Silbert",200);
+		Snake s3 = new Snake("Gilbert",201);
 		Snake s4 = new Snake("Gasha", 17);
 		Snake s5 = new Snake("Sgilbert",19832);
+
+		int[][] a;
+
 		
 		Pet[] pets = {d1, d2, d3, d4, d5, s1, s2, s3, s4, s5};
 		Dog[] dogs = {d1, d2, d3, d4, d5};

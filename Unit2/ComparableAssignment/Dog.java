@@ -40,7 +40,7 @@ public class Dog extends Pet
 		int name = super.compareTo(other);
 		if(name == 0)
 		{
-			return weight - other.weight;
+			return this.weight - other.weight;
 		}
 		else
 		{
