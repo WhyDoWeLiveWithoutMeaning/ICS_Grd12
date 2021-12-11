@@ -35,16 +35,22 @@ public class Dog extends Pet
 		return "Dog: " + super.toString() + " " + weight + " pounds";
 	}
 
-	public int compareTo(Dog other)
+	@Override
+	public int compareTo(Pet p)
 	{
-		int name = super.compareTo(other);
-		if(name == 0)
-		{
-			return this.weight - other.weight;
-		}
-		else
-		{
-			return name;
+		if (p instanceof Dog){
+			Dog other = (Dog) p;
+			int name = super.compareTo(other);
+			if(name == 0)
+			{
+				return this.weight - other.weight;
+			}
+			else
+			{
+				return name;
+			}
+		} else {
+			return super.compareTo(p);
 		}
 	}
 }

@@ -14,9 +14,9 @@ public class PetTest
 		Dog d4 = new Dog("Lenny",245);
 		Dog d5 = new Dog("Blouie",83);
 		
-		Snake s1 = new Snake("Gilbert",200);
+		Snake s1 = new Snake("Gilbert",2234);
 		Snake s2 = new Snake("Sasha", 209);
-		Snake s3 = new Snake("Gilbert",201);
+		Snake s3 = new Snake("Gilbert",200);
 		Snake s4 = new Snake("Gasha", 17);
 		Snake s5 = new Snake("Sgilbert",19832);
 

@@ -34,12 +34,18 @@ public class Snake extends Pet
 		return "Snake: " + super.toString() + " length: " + length;
 	}
 
-	public int compareTo(Snake s){
-		int name = this.length - s.length;
-		if(name == 0){
-			return super.compareTo(s);
+	@Override
+	public int compareTo(Pet p){
+		if (p instanceof Snake){
+			Snake s = (Snake) p;
+			int name = this.length - s.length;
+			if(name == 0){
+				return super.compareTo(s);
+			} else {
+				return name;
+			}
 		} else {
-			return name;
+			return super.compareTo(p);
 		}
 	}
 }
