@@ -69,7 +69,7 @@ public class HockeyPlayerCoach extends Person implements Player, Coach {
     }
 
     public String disciplinePlayer(){
-        return "WHAT THE... WHAT WAS THAT? *Smacks Players Head* DON'T DO THAT AGAIN!";
+        return "You were a very naughty player, Now come sit on my lap and take this beating!";
     }
 
 }
