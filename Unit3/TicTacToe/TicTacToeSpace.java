@@ -13,14 +13,28 @@ public class TicTacToeSpace {
     }
 
     public TicTacToeSpace(int value) {
-        if (value == 0 || value == 1 || value == 2)
+        if (value == BLANK || value == X || value == O)
             this.value = value;
         else
             this.value = BLANK;
     }
 
-    
+    public int getValue(){
+        return this.value;
+    }
 
+    public void setValue(int value){
+        if (value == BLANK || value == X || value == O)
+            this.value = value;
+    }
     
-    
+    @Override
+    public String toString(){
+        if (value == BLANK)
+            return "·";
+        else if (value == X)
+            return "X";
+        else
+            return "O";
+    }
 }
