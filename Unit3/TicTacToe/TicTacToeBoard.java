@@ -1,9 +1,16 @@
 package Unit3.TicTacToe;
 
+/**
+ * This class represents a Tic Tac Toe board.
+ * @author Eric Beaulne
+ */
+
 public class TicTacToeBoard {
 
+    // instance variable
     private TicTacToeSpace[][] spaces;
 
+    // Constructor
     public TicTacToeBoard() {
         this.spaces = new TicTacToeSpace[3][3];
         for (int i = 0; i < 3; i++) {
@@ -13,6 +20,7 @@ public class TicTacToeBoard {
         }
     }
 
+    // Constructor
     public TicTacToeBoard(int[][] board) {
         this();
         if(board.length == 3 && board[0].length == 3 && isValid(board) || board != null) {
@@ -24,10 +32,12 @@ public class TicTacToeBoard {
         }
     }
 
+    // Constructor
     public TicTacToeBoard(TicTacToeSpace[][] arr){
         this.spaces = arr;
     }
 
+    // Constructor
     public TicTacToeBoard(TicTacToeBoard board){
         this();
         for(int i = 0; i < 3; i++){
@@ -37,6 +47,10 @@ public class TicTacToeBoard {
         }
     }
     
+    /**
+     * This function checks if the board is winning for either X or O
+     * @return true if the board is winning for either X or O
+     */
     public boolean isWin(){
 
         // Check rows
@@ -88,6 +102,10 @@ public class TicTacToeBoard {
         return false;
     }
 
+    /**
+     * This function checks if the board is full and neither X nor O has won
+     * @return true if the board is full and neither X nor O has won
+     */
     public boolean isDraw(){
         for(int i = 0; i < this.spaces.length; i++){
             for(int j = 0; j < this.spaces[i].length; j++){
@@ -100,6 +118,10 @@ public class TicTacToeBoard {
         return true;
     }
 
+    /**
+     * This function checks if the board is blank
+     * @return true if the board is blank
+     */
     public boolean isBlank(){
         int blank = 0;
         for(int i = 0; i < this.spaces.length; i++){
@@ -116,10 +138,21 @@ public class TicTacToeBoard {
         }
     }
 
+    /**
+     * This function gets the value of the space at the given row and column
+     * @return the space at the given row and column
+     */
     public TicTacToeSpace getSpace(int i, int j){
         return this.spaces[i][j];
     }
 
+    /**
+     * This function sets the value of the space at the given row and column
+     * @param i the row of the space
+     * @param j the column of the space
+     * @param value the value of the space
+     * @return true if the space was set successfully
+     */
     public boolean setSpace(int i, int j, int value){
         if ((value == TicTacToeSpace.BLANK || value == TicTacToeSpace.X || value == TicTacToeSpace.O) && i >= 0 && i < 3 && j >= 0 && j < 3){
             this.spaces[i][j].setValue(value);
@@ -129,6 +162,9 @@ public class TicTacToeBoard {
         }
     }
 
+    /**
+     * This function resets the board to blank
+     */
     public void clear(){
         for(int i = 0; i < this.spaces.length; i++){
             for(int j = 0; j < this.spaces[i].length; j++){
@@ -140,16 +176,24 @@ public class TicTacToeBoard {
     @Override
     public String toString(){
         String s = "";
-        for(int i = 0; i < this.spaces.length; i++){
-            for(int j = 0; j < this.spaces[i].length; j++){
-                s += this.spaces[i][j].toString();
+        for (int e = 0; e < (8*this.spaces.length)+1; e++) s+="-";
+        s += "\n";
+        for (int i = 0; i < this.spaces.length; i++){
+            s += "|";
+            for (int j = 0; j < this.spaces[i].length; j++){
+                s += this.spaces[i][j] + "\t|";
             }
+            s += "\n";
+            for (int e = 0; e < (8*this.spaces[i].length)+1; e++) s += "-";
             s += "\n";
         }
         return s;
     }
 
-
+    /**
+     * This function checks if the board is a valid board
+     * @return true if the board is a valid board
+     */
     private static boolean isValid(int[][] board){
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[i].length; j++){
