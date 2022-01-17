@@ -7,8 +7,7 @@ import java.util.TreeMap;
 
 /**
  * I have decided to use TreeMap for this problem.
- * Since it sortes the data automatically, I don't need to worry about sorting
- * it.
+ * Since it sortes the data automatically, I don't need to worry about sorting.
  * 
  * @author Eric Beaulne
  * @version 1.0
