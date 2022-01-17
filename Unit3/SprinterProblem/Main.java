@@ -7,8 +7,7 @@ import java.util.TreeMap;
 
 /**
  * I have decided to use TreeMap for this problem.
- * Since it sortes the data automatically, I don't need to worry about sorting
- * it.
+ * Since it sortes the data automatically, I don't need to worry about sorting.
  * 
  * @author Eric Beaulne
  * @version 1.0
@@ -55,9 +54,7 @@ public class Main {
         // Take in the data
         int n = in.nextInt();
         while (n-- > 0) {
-            int x = in.nextInt();
-            int y = in.nextInt();
-            data.put(x, y);
+            data.put(in.nextInt(), in.nextInt());
         }
 
         // Iterate through the data and find the max value
