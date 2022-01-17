@@ -32,17 +32,14 @@ public class Main {
                 double solvedAnswer = Solver(filepath);
 
                 // Read the answer from the .out file.
-                Scanner answerScanner = inputStream(answerPath);
-
-                double answer = answerScanner.nextDouble();
+                double answer = inputStream(answerPath).nextDouble();
 
                 // Compare the two answers.
                 System.out.println("Test case: " + filename.substring(0, filename.lastIndexOf('.'))
-                        + " | Calucated Answer: " + answer + " | Correct Answer: " + solvedAnswer + " | Same: "
+                        + " | Calucated Answer: " + solvedAnswer + " | Correct Answer: " + answer + " | Same: "
                         + (answer == solvedAnswer));
             }
         }
-
     }
 
     public static double Solver(String inputFile) {
@@ -55,9 +52,7 @@ public class Main {
         // Take in the data
         int n = in.nextInt();
         while (n-- > 0) {
-            int x = in.nextInt();
-            int y = in.nextInt();
-            data.put(x, y);
+            data.put(in.nextInt(), in.nextInt());
         }
 
         // Iterate through the data and find the max value
