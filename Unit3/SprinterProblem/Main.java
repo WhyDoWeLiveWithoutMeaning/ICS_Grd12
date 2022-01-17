@@ -19,6 +19,7 @@ public class Main {
 
         File dir = new File("Unit3\\SprinterProblem\\Files");
         File[] files = dir.listFiles();
+        
         // Print the files in the directory
         for (File file : files) {
             String filename = file.getName();
@@ -26,55 +27,34 @@ public class Main {
             if (file.getName().endsWith(".in")) {
                 // Get the file with the answer.
                 String answerPath = filepath.substring(0, filepath.lastIndexOf('.')) + ".out";
-
+                long startTime = System.currentTimeMillis();
                 // Use the data in the .in file to solve the problem.
                 double solvedAnswer = Solver(filepath);
-
+                long endTime = System.currentTimeMillis();
                 // Read the answer from the .out file.
                 double answer = inputStream(answerPath).nextDouble();
-
                 // Compare the two answers.
-                System.out.println("Test case: " + filename.substring(0, filename.lastIndexOf('.'))
-                        + " | Calucated Answer: " + solvedAnswer + " | Correct Answer: " + answer + " | Same: "
-                        + (answer == solvedAnswer));
+                System.out.println("Test case: " + filename.substring(0, filename.lastIndexOf('.')) + " | Calucated Answer: " + solvedAnswer + " | Correct Answer: " + answer + " | Same: " + (answer == solvedAnswer) + " |  Time: " + (endTime-startTime)+"ms");
             }
         }
     }
 
     public static double Solver(String inputFile) {
-        // TreeMap to store the data.
-        TreeMap<Integer, Integer> data = new TreeMap<Integer, Integer>();
-
-        // Get File
-        Scanner in = inputStream(inputFile);
-
-        // Take in the data
-        int n = in.nextInt();
+        TreeMap<Integer, Integer> data = new TreeMap<Integer, Integer>(); // TreeMap to store the data.
+        Scanner in = inputStream(inputFile); // Get File
+        int n = in.nextInt(); // Take in the data
         while (n-- > 0) {
             data.put(in.nextInt(), in.nextInt());
         }
-        
-        data.forEach((n1, n2)->{
-            System.out.println(n1 + " " + n2);
-        });
-
-        // Iterate through the data and find the max value
         double max = 0.0;
-
         Integer[] keys = data.keySet().toArray(new Integer[0]);
-
-        for (int i = 1; i < data.size(); i++) {
-            // Equation for the distance
-            // d = abs(y2-y1)/(x2-x1)
-            double distance = (double) Math.abs(data.get(keys[i]) - data.get(keys[i - 1]))
-                    / (double) (keys[i] - keys[i - 1]);
+        for (int i = 1; i < data.size(); i++) {// Iterate through the data and find the max value
+            double distance = (double) Math.abs(data.get(keys[i]) - data.get(keys[i - 1])) / (double) (keys[i] - keys[i - 1]); // Equation for the distance | d = abs(y2-y1)/(x2-x1)
             if (distance > max) {
                 max = distance;
             }
         }
-
-        // Return Maximum distance between two points.
-        return max;
+        return max; // Return Maximum distance between two points.
     }
 
     public static Scanner inputStream(String fileLoc) {
