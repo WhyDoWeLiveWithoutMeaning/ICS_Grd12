@@ -53,6 +53,10 @@ public class Main {
         while (n-- > 0) {
             data.put(in.nextInt(), in.nextInt());
         }
+        
+        data.forEach((n1, n2)->{
+            System.out.println(n1 + " " + n2);
+        });
 
         // Iterate through the data and find the max value
         double max = 0.0;
