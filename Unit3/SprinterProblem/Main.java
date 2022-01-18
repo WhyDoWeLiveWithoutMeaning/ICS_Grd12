@@ -50,6 +50,13 @@ public class Main {
         }
     }
 
+    /**
+     * This method takes in a filepath takes the file and reads it.
+     * It proceeds to process the data and return the answer.
+     * 
+     * @param inputFile
+     * @return the answer calculated by the program.
+     */
     public static double Solver(String inputFile) {
         // TreeMap to store the data.
         TreeMap<Integer, Integer> data = new TreeMap<Integer, Integer>();
@@ -81,6 +88,11 @@ public class Main {
         return max;
     }
 
+    /**
+     * This method takes in a filepath and returns a Scanner object.
+     * @param fileLoc
+     * @return Scanner object
+     */
     public static Scanner inputStream(String fileLoc) {
         Scanner input = null;
         try {
