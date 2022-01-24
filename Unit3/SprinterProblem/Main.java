@@ -90,7 +90,7 @@ public class Main {
 
     /**
      * This method takes in a filepath and returns a Scanner object.
-     * @param fileLoc
+     * @param fileLoc the location of the input file.
      * @return Scanner object
      */
     public static Scanner inputStream(String fileLoc) {
