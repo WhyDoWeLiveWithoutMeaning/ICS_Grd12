@@ -54,6 +54,34 @@ public class Sorting {
         }
     }
 
+    public static void selectionSort(int[] arr) {
+
+        for(int top = arr.length-1; top > 0; top--){
+            int big = 0;
+            for(int i = 1; i <= top; i++){
+                if(arr[i] > arr[big]){
+                    big = i;
+                }
+            }
+
+            int temp = arr[top];
+            arr[top] = arr[big];
+            arr[big] = temp;
+        }
+
+    }
+
+    public static void insertionSort(int[] arr){
+        for(int top = 1; top < arr.length; top++){
+            int temp = arr[top];
+            int i;
+            for(i = top; i > 0 && arr[i-1] > temp; i--){
+                arr[i] = arr[i-1];
+            }
+            arr[i] = temp;
+        }
+    }
+
     public static void bogoSort(int[] arr) {
         do{
             for(int i = 0; i < arr.length; i++){

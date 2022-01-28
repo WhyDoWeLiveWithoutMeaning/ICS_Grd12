@@ -1,0 +1,68 @@
+html{
+    body{
+        background: black;
+        color: white;
+
+        div {
+            width: 75%;
+            h1{
+                font-size: 2em;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+            h2{
+                font-size: 1.5em;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+            h3{
+                font-size: 1.2em;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+            h4{
+                font-size: 1em;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+            p{
+                font-size: 1em;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+            li {
+                font-size: 1em;
+                text-align: left;
+                margin: 0;
+                padding: 0;
+            }
+            img{
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                
+            }
+
+            div.codeblock{
+                div{
+                    border-radius: 10px;
+                    font-size: 1vw;
+                    border: 5px solid #B593B7;
+                    text-align: left;
+                }
+            }
+
+            div.footnote{
+                font-size: 0.8em;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}

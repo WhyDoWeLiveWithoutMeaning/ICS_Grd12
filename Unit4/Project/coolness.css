@@ -1,0 +1,97 @@
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 2vw;
+}
+
+img{
+  background-color: white;
+  border-radius: 10px;
+  border: 5px solid #B593B7;
+}
+
+body > div {
+  margin: auto;
+  width: 75%;
+}
+
+body > div > h1, body > div h2, body > div h3, body > div h4, body > div h5, body > div h6 {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body > div > p {
+  font-family: 'Zilla Slab', serif;
+}
+
+body > div ul li {
+  font-family: 'Exo', sans-serif;
+}
+
+body > div > div.codeblock > div {
+  background-color: black;
+  border-radius: 10px;
+  font-size: 1vw;
+  border: 5px solid #B593B7;
+  text-align: left;
+}
+
+body > div > div.codeblock > div > pre {
+  padding: 5px 0px 5px 3px;
+  font-family: 'Jost', sans-serif;
+}
+
+body > div > div.img > img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+body > div > div {
+  margin: auto;
+}
+
+body > div > div > table {
+  margin: auto;
+  text-align: left;
+  vertical-align: middle;
+  width: 100%;
+}
+
+body > div > div > table tr:nth-child(1) {
+  border: 2px solid gray;
+  font-weight: bolder;
+}
+
+body > div > div > table td {
+  border: 1px solid gray;
+  padding: 5px 10px;
+  font-size: 1.5vw;
+}
+
+body > div > div.footnote {
+  font-size: 1vw;
+}
+
+ul {
+  text-align: left;
+}
+
+@media (orientation: landscape) {
+  body > div {
+    width: 75%;
+  }
+  body > div > div.codeblock > div {
+    font-size: 1vw;
+  }
+}
+
+@media (orientation: portrait) {
+  body > div {
+    width: 100%;
+  }
+  body > div > div.codeblock > div {
+    font-size: 1.2vw;
+  }
+}
+/*# sourceMappingURL=coolness.css.map */

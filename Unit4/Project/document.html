@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="coolness.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo:wght@300&family=Josefin+Sans&family=Jost:wght@300&family=Zilla+Slab:wght@500&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div>
+        <h1>The Quicksort Algorithm <sup><a id="superfoot" href="#foot1">[1]</a></sup></h1>
+        <p>The Quicksort Algorithm is a sorting algorithm known for being one of the fastest sorting algorithms out
+            there. But before I explain how it works let me teach you some concepts to know.</p>
+        <br>
+        <h3>Intro to Big O Notation</h3>
+        <p>Big O Notation is very important when talking about sorting algorithms. It is used to show how the runtime
+            and the space requirements of an algorithm grow with the number of elements in the array. Lets look at the
+            average Big O notation of other algorithms:
+        <ul>
+            <li>Bubble Sort: O(n^2). For the bubble sort as the number of elements grow the Big O grows fast showing
+                that the more elements you have in an array the more resources and time it will take to sort it.</li>
+            <li>Bogosort: Big((n+1)!). As you can see with the Bogosort (Which is the slowest sorting method) <b>GROWS
+                    VERY FAST</b> the more elements are added.</li>
+        </ul>
+        </p>
+        <p>Now that you know how Big O Notation works, Let's look at the Quicksort Algorithm!</p>
+        <br>
+        <h3>The Quicksort Algorithm</h3>
+        <p>The Quicksort algorithm uses something know as Partitioning, which basically means it splits the array in
+            half and then sorts each side. Its has an average Big O Notation of O(n log n) which means it is pretty fast
+            compared to others.</p>
+        <br>
+        <h4>How does the Quicksort Algorithm use Partitioning?</h4>
+        <p>The Quicksort algorithm firstly Partitions the array by picking the last element (The Pivot) and move any
+            element that is larger than that number after the Pivot while keeping any numbers smaller before the Pivot.
+            Then you simply repeat that process for each side of the pivot until you either have 0 or 1 element on the
+            side of any Pivot.</p>
+        <br>
+        <img
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Quicksort-diagram.svg/300px-Quicksort-diagram.svg.png">
+        <br>
+        <p>In the Image above you can see that we first set the Pivot to the last Element in the array (4). Then we
+            proceed to scan the numbers from left to right and if we detect a number bigger than our pivot we swap the
+            element before the pivot with the detected number and swap the pivot with the detected numbers new
+            placement. Once we finish we repeat the process with each side of the pivot recursively until the elements
+            are sorted. Once completed we will merge are the sorted sub arrays together and will have a completely
+            sorted array.</p>
+        <br>
+        <h4>Code Example</h4>
+        <p>Below I will show you a code example of how this can be accomplished.</p>
+        <br>
+        <style>
+            pre {
+                line-height: 125%;
+            }
+
+            td.linenos .normal {
+                color: inherit;
+                background-color: transparent;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            span.linenos {
+                color: inherit;
+                background-color: transparent;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            td.linenos .special {
+                color: #000000;
+                background-color: #ffffc0;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            span.linenos.special {
+                color: #000000;
+                background-color: #ffffc0;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .bUrLWlaaBv .hll {
+                background-color: #222222
+            }
+
+            .bUrLWlaaBv {
+                background: #000000;
+                color: #cccccc
+            }
+
+            .bUrLWlaaBv .c {
+                color: #000080
+            }
+
+            /* Comment */
+            .bUrLWlaaBv .err {
+                color: #cccccc;
+                border: 1px solid #FF0000
+            }
+
+            /* Error */
+            .bUrLWlaaBv .esc {
+                color: #cccccc
+            }
+
+            /* Escape */
+            .bUrLWlaaBv .g {
+                color: #cccccc
+            }
+
+            /* Generic */
+            .bUrLWlaaBv .k {
+                color: #cdcd00
+            }
+
+            /* Keyword */
+            .bUrLWlaaBv .l {
+                color: #cccccc
+            }
+
+            /* Literal */
+            .bUrLWlaaBv .n {
+                color: #cccccc
+            }
+
+            /* Name */
+            .bUrLWlaaBv .o {
+                color: #3399cc
+            }
+
+            /* Operator */
+            .bUrLWlaaBv .x {
+                color: #cccccc
+            }
+
+            /* Other */
+            .bUrLWlaaBv .p {
+                color: #cccccc
+            }
+
+            /* Punctuation */
+            .bUrLWlaaBv .ch {
+                color: #000080
+            }
+
+            /* Comment.Hashbang */
+            .bUrLWlaaBv .cm {
+                color: #000080
+            }
+
+            /* Comment.Multiline */
+            .bUrLWlaaBv .cp {
+                color: #000080
+            }
+
+            /* Comment.Preproc */
+            .bUrLWlaaBv .cpf {
+                color: #000080
+            }
+
+            /* Comment.PreprocFile */
+            .bUrLWlaaBv .c1 {
+                color: #000080
+            }
+
+            /* Comment.Single */
+            .bUrLWlaaBv .cs {
+                color: #cd0000;
+                font-weight: bold
+            }
+
+            /* Comment.Special */
+            .bUrLWlaaBv .gd {
+                color: #cd0000
+            }
+
+            /* Generic.Deleted */
+            .bUrLWlaaBv .ge {
+                color: #cccccc;
+                font-style: italic
+            }
+
+            /* Generic.Emph */
+            .bUrLWlaaBv .gr {
+                color: #FF0000
+            }
+
+            /* Generic.Error */
+            .bUrLWlaaBv .gh {
+                color: #000080;
+                font-weight: bold
+            }
+
+            /* Generic.Heading */
+            .bUrLWlaaBv .gi {
+                color: #00cd00
+            }
+
+            /* Generic.Inserted */
+            .bUrLWlaaBv .go {
+                color: #888888
+            }
+
+            /* Generic.Output */
+            .bUrLWlaaBv .gp {
+                color: #000080;
+                font-weight: bold
+            }
+
+            /* Generic.Prompt */
+            .bUrLWlaaBv .gs {
+                color: #cccccc;
+                font-weight: bold
+            }
+
+            /* Generic.Strong */
+            .bUrLWlaaBv .gu {
+                color: #800080;
+                font-weight: bold
+            }
+
+            /* Generic.Subheading */
+            .bUrLWlaaBv .gt {
+                color: #0044DD
+            }
+
+            /* Generic.Traceback */
+            .bUrLWlaaBv .kc {
+                color: #cdcd00
+            }
+
+            /* Keyword.Constant */
+            .bUrLWlaaBv .kd {
+                color: #00cd00
+            }
+
+            /* Keyword.Declaration */
+            .bUrLWlaaBv .kn {
+                color: #cd00cd
+            }
+
+            /* Keyword.Namespace */
+            .bUrLWlaaBv .kp {
+                color: #cdcd00
+            }
+
+            /* Keyword.Pseudo */
+            .bUrLWlaaBv .kr {
+                color: #cdcd00
+            }
+
+            /* Keyword.Reserved */
+            .bUrLWlaaBv .kt {
+                color: #00cd00
+            }
+
+            /* Keyword.Type */
+            .bUrLWlaaBv .ld {
+                color: #cccccc
+            }
+
+            /* Literal.Date */
+            .bUrLWlaaBv .m {
+                color: #cd00cd
+            }
+
+            /* Literal.Number */
+            .bUrLWlaaBv .s {
+                color: #cd0000
+            }
+
+            /* Literal.String */
+            .bUrLWlaaBv .na {
+                color: #cccccc
+            }
+
+            /* Name.Attribute */
+            .bUrLWlaaBv .nb {
+                color: #cd00cd
+            }
+
+            /* Name.Builtin */
+            .bUrLWlaaBv .nc {
+                color: #00cdcd
+            }
+
+            /* Name.Class */
+            .bUrLWlaaBv .no {
+                color: #cccccc
+            }
+
+            /* Name.Constant */
+            .bUrLWlaaBv .nd {
+                color: #cccccc
+            }
+
+            /* Name.Decorator */
+            .bUrLWlaaBv .ni {
+                color: #cccccc
+            }
+
+            /* Name.Entity */
+            .bUrLWlaaBv .ne {
+                color: #666699;
+                font-weight: bold
+            }
+
+            /* Name.Exception */
+            .bUrLWlaaBv .nf {
+                color: #cccccc
+            }
+
+            /* Name.Function */
+            .bUrLWlaaBv .nl {
+                color: #cccccc
+            }
+
+            /* Name.Label */
+            .bUrLWlaaBv .nn {
+                color: #cccccc
+            }
+
+            /* Name.Namespace */
+            .bUrLWlaaBv .nx {
+                color: #cccccc
+            }
+
+            /* Name.Other */
+            .bUrLWlaaBv .py {
+                color: #cccccc
+            }
+
+            /* Name.Property */
+            .bUrLWlaaBv .nt {
+                color: #cccccc
+            }
+
+            /* Name.Tag */
+            .bUrLWlaaBv .nv {
+                color: #00cdcd
+            }
+
+            /* Name.Variable */
+            .bUrLWlaaBv .ow {
+                color: #cdcd00
+            }
+
+            /* Operator.Word */
+            .bUrLWlaaBv .w {
+                color: #cccccc
+            }
+
+            /* Text.Whitespace */
+            .bUrLWlaaBv .mb {
+                color: #cd00cd
+            }
+
+            /* Literal.Number.Bin */
+            .bUrLWlaaBv .mf {
+                color: #cd00cd
+            }
+
+            /* Literal.Number.Float */
+            .bUrLWlaaBv .mh {
+                color: #cd00cd
+            }
+
+            /* Literal.Number.Hex */
+            .bUrLWlaaBv .mi {
+                color: #cd00cd
+            }
+
+            /* Literal.Number.Integer */
+            .bUrLWlaaBv .mo {
+                color: #cd00cd
+            }
+
+            /* Literal.Number.Oct */
+            .bUrLWlaaBv .sa {
+                color: #cd0000
+            }
+
+            /* Literal.String.Affix */
+            .bUrLWlaaBv .sb {
+                color: #cd0000
+            }
+
+            /* Literal.String.Backtick */
+            .bUrLWlaaBv .sc {
+                color: #cd0000
+            }
+
+            /* Literal.String.Char */
+            .bUrLWlaaBv .dl {
+                color: #cd0000
+            }
+
+            /* Literal.String.Delimiter */
+            .bUrLWlaaBv .sd {
+                color: #cd0000
+            }
+
+            /* Literal.String.Doc */
+            .bUrLWlaaBv .s2 {
+                color: #cd0000
+            }
+
+            /* Literal.String.Double */
+            .bUrLWlaaBv .se {
+                color: #cd0000
+            }
+
+            /* Literal.String.Escape */
+            .bUrLWlaaBv .sh {
+                color: #cd0000
+            }
+
+            /* Literal.String.Heredoc */
+            .bUrLWlaaBv .si {
+                color: #cd0000
+            }
+
+            /* Literal.String.Interpol */
+            .bUrLWlaaBv .sx {
+                color: #cd0000
+            }
+
+            /* Literal.String.Other */
+            .bUrLWlaaBv .sr {
+                color: #cd0000
+            }
+
+            /* Literal.String.Regex */
+            .bUrLWlaaBv .s1 {
+                color: #cd0000
+            }
+
+            /* Literal.String.Single */
+            .bUrLWlaaBv .ss {
+                color: #cd0000
+            }
+
+            /* Literal.String.Symbol */
+            .bUrLWlaaBv .bp {
+                color: #cd00cd
+            }
+
+            /* Name.Builtin.Pseudo */
+            .bUrLWlaaBv .fm {
+                color: #cccccc
+            }
+
+            /* Name.Function.Magic */
+            .bUrLWlaaBv .vc {
+                color: #00cdcd
+            }
+
+            /* Name.Variable.Class */
+            .bUrLWlaaBv .vg {
+                color: #00cdcd
+            }
+
+            /* Name.Variable.Global */
+            .bUrLWlaaBv .vi {
+                color: #00cdcd
+            }
+
+            /* Name.Variable.Instance */
+            .bUrLWlaaBv .vm {
+                color: #00cdcd
+            }
+
+            /* Name.Variable.Magic */
+            .bUrLWlaaBv .il {
+                color: #cd00cd
+            }
+
+            /* Literal.Number.Integer.Long */
+        </style>
+        <div class="codeblock">
+            <div class="bUrLWlaaBv">
+                <pre><span></span><span class="kd">class</span> <span class="nc">Quicksort</span><span class="p">{</span>
+        <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">quicksort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">bottom</span><span class="p">,</span> <span class="kt">int</span> <span class="n">top</span><span class="p">){</span>
+        <span class="c1">// If the index of the bottom of the Array is greater than or equal to the index of the top </span>
+        <span class="c1">// then it is an invalid array because it is empty or already sorted.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">bottom</span> <span class="o">&lt;</span> <span class="n">top</span><span class="p">){</span>
+            <span class="c1">// Once we parition and put each bigger element to the right of the pivot and the smaller elements to the left</span>
+            <span class="kt">int</span> <span class="n">pivot</span> <span class="o">=</span> <span class="n">partition</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">top</span><span class="p">);</span>
+            <span class="c1">// We will repeat the process on the left and right of the pivot</span>
+            <span class="n">quicksort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">pivot</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// Left</span>
+            <span class="n">quicksort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">pivot</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">top</span><span class="p">);</span> <span class="c1">// Right</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">partition</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">bottom</span><span class="p">,</span> <span class="kt">int</span> <span class="n">top</span><span class="p">){</span>
+        <span class="c1">// Set the pivot to the top of the array.</span>
+        <span class="kt">int</span> <span class="n">pivot</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">top</span><span class="o">]</span><span class="p">;</span>
+        <span class="c1">// Set the leftbound or where at the end we will put the last index to the bottom of the array.</span>
+        <span class="kt">int</span> <span class="n">leftBound</span> <span class="o">=</span> <span class="n">bottom</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+        <span class="c1">// As We loop through each element in the array we will check if the element is less than the pivot.</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">bottom</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">top</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>  
+            <span class="c1">// If the element is less than the pivot we will swap it with the element to the left of the pivot.</span>
+            <span class="c1">// So that we can keep all the bigger elements closer to the pivot and all the smaller elements closer to the bottom of the array.</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">pivot</span><span class="p">){</span>
+                <span class="n">leftBound</span><span class="o">++</span><span class="p">;</span>
+
+                <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+                <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">leftBound</span><span class="o">]</span><span class="p">;</span>
+                <span class="n">arr</span><span class="o">[</span><span class="n">leftBound</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Once we finish looping through the array we will swap the pivot with the first element that is bigger than </span>
+        <span class="c1">// the pivot so that the pivot is in the middle of the array.</span>
+        <span class="n">leftBound</span><span class="o">++</span><span class="p">;</span>
+
+        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">top</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">arr</span><span class="o">[</span><span class="n">top</span><span class="o">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">leftBound</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">arr</span><span class="o">[</span><span class="n">leftBound</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+
+        <span class="c1">// Then we will return the index of the pivot so that we can sort the left and the right subarrays.</span>
+        <span class="k">return</span> <span class="n">leftBound</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+            </div>
+        </div>
+        <br>
+        <p>This code works differently than the image above. </p>
+        <br>
+        <div class="footnote" id="foot1"><a href="https://en.wikipedia.org/wiki/Quicksort" target="_blank">1.
+                https://en.wikipedia.org/wiki/Quicksort</a></div>
+        <br>
+
+    </div>
+</body>
+
+</html>
+<!-- <img
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Quicksort-diagram.svg/300px-Quicksort-diagram.svg.png"> -->
