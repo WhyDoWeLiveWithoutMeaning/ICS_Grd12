@@ -6,12 +6,12 @@
 <p>Now that you know how Big O Notation works, Let's look at the Quicksort Algorithm!</p>
 <br>
 <h3>The Quicksort Algorithm</h3>
-<p>The Quicksort algorithm uses something know as Partitioning, which basically means it splits the array in half and then sorts each side. Its has an average Big O Notation of O(n log n) which means it is pretty fast compared to others.</p>
+<p>The Quicksort algorithm uses something know as Partitioning, which basically means it splits the array in half and then sorts each side. Its has a Time Complexity of O(n log n) which means it is pretty fast compared to others.</p>
 <br>
 <h4>How does the Quicksort Algorithm use Partitioning?</h4>
 <p>The Quicksort algorithm firstly Partitions the array by picking the last element (The Pivot) and move any element that is larger than that number after the Pivot while keeping any numbers smaller before the Pivot. Then you simply repeat that process for each side of the pivot until you either have 0 or 1 element on the side of any Pivot.</p>
 <br>
-<br>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Quicksort-diagram.svg/300px-Quicksort-diagram.svg.png">
 <br>
 <p>In the Image above you can see that we first set the Pivot to the last Element in the array (4). Then we proceed to scan the numbers from left to right and if we detect a number bigger than our pivot we swap the element before the pivot with the detected number and swap the pivot with the detected numbers new placement. Once we finish we repeat the process with each side of the pivot recursively until the elements are sorted. Once completed we will merge are the sorted sub arrays together and will have a completely sorted array.</p>
 <br>
@@ -19,90 +19,90 @@
 <p>Below I will show you a code example of how this can be accomplished.</p>
 <br>
 <style>pre { line-height: 125%; }
-td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .normal { color: #aaaaaa; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: #aaaaaa; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
-.bUrLWlaaBv .hll { background-color: #222222 }
-.bUrLWlaaBv { background: #000000; color: #cccccc }
-.bUrLWlaaBv .c { color: #000080 } /* Comment */
-.bUrLWlaaBv .err { color: #cccccc; border: 1px solid #FF0000 } /* Error */
-.bUrLWlaaBv .esc { color: #cccccc } /* Escape */
-.bUrLWlaaBv .g { color: #cccccc } /* Generic */
-.bUrLWlaaBv .k { color: #cdcd00 } /* Keyword */
-.bUrLWlaaBv .l { color: #cccccc } /* Literal */
-.bUrLWlaaBv .n { color: #cccccc } /* Name */
-.bUrLWlaaBv .o { color: #3399cc } /* Operator */
-.bUrLWlaaBv .x { color: #cccccc } /* Other */
-.bUrLWlaaBv .p { color: #cccccc } /* Punctuation */
-.bUrLWlaaBv .ch { color: #000080 } /* Comment.Hashbang */
-.bUrLWlaaBv .cm { color: #000080 } /* Comment.Multiline */
-.bUrLWlaaBv .cp { color: #000080 } /* Comment.Preproc */
-.bUrLWlaaBv .cpf { color: #000080 } /* Comment.PreprocFile */
-.bUrLWlaaBv .c1 { color: #000080 } /* Comment.Single */
-.bUrLWlaaBv .cs { color: #cd0000; font-weight: bold } /* Comment.Special */
-.bUrLWlaaBv .gd { color: #cd0000 } /* Generic.Deleted */
-.bUrLWlaaBv .ge { color: #cccccc; font-style: italic } /* Generic.Emph */
-.bUrLWlaaBv .gr { color: #FF0000 } /* Generic.Error */
-.bUrLWlaaBv .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.bUrLWlaaBv .gi { color: #00cd00 } /* Generic.Inserted */
-.bUrLWlaaBv .go { color: #888888 } /* Generic.Output */
-.bUrLWlaaBv .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.bUrLWlaaBv .gs { color: #cccccc; font-weight: bold } /* Generic.Strong */
-.bUrLWlaaBv .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.bUrLWlaaBv .gt { color: #0044DD } /* Generic.Traceback */
-.bUrLWlaaBv .kc { color: #cdcd00 } /* Keyword.Constant */
-.bUrLWlaaBv .kd { color: #00cd00 } /* Keyword.Declaration */
-.bUrLWlaaBv .kn { color: #cd00cd } /* Keyword.Namespace */
-.bUrLWlaaBv .kp { color: #cdcd00 } /* Keyword.Pseudo */
-.bUrLWlaaBv .kr { color: #cdcd00 } /* Keyword.Reserved */
-.bUrLWlaaBv .kt { color: #00cd00 } /* Keyword.Type */
-.bUrLWlaaBv .ld { color: #cccccc } /* Literal.Date */
-.bUrLWlaaBv .m { color: #cd00cd } /* Literal.Number */
-.bUrLWlaaBv .s { color: #cd0000 } /* Literal.String */
-.bUrLWlaaBv .na { color: #cccccc } /* Name.Attribute */
-.bUrLWlaaBv .nb { color: #cd00cd } /* Name.Builtin */
-.bUrLWlaaBv .nc { color: #00cdcd } /* Name.Class */
-.bUrLWlaaBv .no { color: #cccccc } /* Name.Constant */
-.bUrLWlaaBv .nd { color: #cccccc } /* Name.Decorator */
-.bUrLWlaaBv .ni { color: #cccccc } /* Name.Entity */
-.bUrLWlaaBv .ne { color: #666699; font-weight: bold } /* Name.Exception */
-.bUrLWlaaBv .nf { color: #cccccc } /* Name.Function */
-.bUrLWlaaBv .nl { color: #cccccc } /* Name.Label */
-.bUrLWlaaBv .nn { color: #cccccc } /* Name.Namespace */
-.bUrLWlaaBv .nx { color: #cccccc } /* Name.Other */
-.bUrLWlaaBv .py { color: #cccccc } /* Name.Property */
-.bUrLWlaaBv .nt { color: #cccccc } /* Name.Tag */
-.bUrLWlaaBv .nv { color: #00cdcd } /* Name.Variable */
-.bUrLWlaaBv .ow { color: #cdcd00 } /* Operator.Word */
-.bUrLWlaaBv .w { color: #cccccc } /* Text.Whitespace */
-.bUrLWlaaBv .mb { color: #cd00cd } /* Literal.Number.Bin */
-.bUrLWlaaBv .mf { color: #cd00cd } /* Literal.Number.Float */
-.bUrLWlaaBv .mh { color: #cd00cd } /* Literal.Number.Hex */
-.bUrLWlaaBv .mi { color: #cd00cd } /* Literal.Number.Integer */
-.bUrLWlaaBv .mo { color: #cd00cd } /* Literal.Number.Oct */
-.bUrLWlaaBv .sa { color: #cd0000 } /* Literal.String.Affix */
-.bUrLWlaaBv .sb { color: #cd0000 } /* Literal.String.Backtick */
-.bUrLWlaaBv .sc { color: #cd0000 } /* Literal.String.Char */
-.bUrLWlaaBv .dl { color: #cd0000 } /* Literal.String.Delimiter */
-.bUrLWlaaBv .sd { color: #cd0000 } /* Literal.String.Doc */
-.bUrLWlaaBv .s2 { color: #cd0000 } /* Literal.String.Double */
-.bUrLWlaaBv .se { color: #cd0000 } /* Literal.String.Escape */
-.bUrLWlaaBv .sh { color: #cd0000 } /* Literal.String.Heredoc */
-.bUrLWlaaBv .si { color: #cd0000 } /* Literal.String.Interpol */
-.bUrLWlaaBv .sx { color: #cd0000 } /* Literal.String.Other */
-.bUrLWlaaBv .sr { color: #cd0000 } /* Literal.String.Regex */
-.bUrLWlaaBv .s1 { color: #cd0000 } /* Literal.String.Single */
-.bUrLWlaaBv .ss { color: #cd0000 } /* Literal.String.Symbol */
-.bUrLWlaaBv .bp { color: #cd00cd } /* Name.Builtin.Pseudo */
-.bUrLWlaaBv .fm { color: #cccccc } /* Name.Function.Magic */
-.bUrLWlaaBv .vc { color: #00cdcd } /* Name.Variable.Class */
-.bUrLWlaaBv .vg { color: #00cdcd } /* Name.Variable.Global */
-.bUrLWlaaBv .vi { color: #00cdcd } /* Name.Variable.Instance */
-.bUrLWlaaBv .vm { color: #00cdcd } /* Name.Variable.Magic */
-.bUrLWlaaBv .il { color: #cd00cd } /* Literal.Number.Integer.Long */</style>
+.SZAhHkJMbx .hll { background-color: #404040 }
+.SZAhHkJMbx { background: #202020; color: #d0d0d0 }
+.SZAhHkJMbx .c { color: #999999; font-style: italic } /* Comment */
+.SZAhHkJMbx .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.SZAhHkJMbx .esc { color: #d0d0d0 } /* Escape */
+.SZAhHkJMbx .g { color: #d0d0d0 } /* Generic */
+.SZAhHkJMbx .k { color: #6ab825; font-weight: bold } /* Keyword */
+.SZAhHkJMbx .l { color: #d0d0d0 } /* Literal */
+.SZAhHkJMbx .n { color: #d0d0d0 } /* Name */
+.SZAhHkJMbx .o { color: #d0d0d0 } /* Operator */
+.SZAhHkJMbx .x { color: #d0d0d0 } /* Other */
+.SZAhHkJMbx .p { color: #d0d0d0 } /* Punctuation */
+.SZAhHkJMbx .ch { color: #999999; font-style: italic } /* Comment.Hashbang */
+.SZAhHkJMbx .cm { color: #999999; font-style: italic } /* Comment.Multiline */
+.SZAhHkJMbx .cp { color: #cd2828; font-weight: bold } /* Comment.Preproc */
+.SZAhHkJMbx .cpf { color: #999999; font-style: italic } /* Comment.PreprocFile */
+.SZAhHkJMbx .c1 { color: #999999; font-style: italic } /* Comment.Single */
+.SZAhHkJMbx .cs { color: #e50808; font-weight: bold; background-color: #520000 } /* Comment.Special */
+.SZAhHkJMbx .gd { color: #d22323 } /* Generic.Deleted */
+.SZAhHkJMbx .ge { color: #d0d0d0; font-style: italic } /* Generic.Emph */
+.SZAhHkJMbx .gr { color: #d22323 } /* Generic.Error */
+.SZAhHkJMbx .gh { color: #ffffff; font-weight: bold } /* Generic.Heading */
+.SZAhHkJMbx .gi { color: #589819 } /* Generic.Inserted */
+.SZAhHkJMbx .go { color: #cccccc } /* Generic.Output */
+.SZAhHkJMbx .gp { color: #aaaaaa } /* Generic.Prompt */
+.SZAhHkJMbx .gs { color: #d0d0d0; font-weight: bold } /* Generic.Strong */
+.SZAhHkJMbx .gu { color: #ffffff; text-decoration: underline } /* Generic.Subheading */
+.SZAhHkJMbx .gt { color: #d22323 } /* Generic.Traceback */
+.SZAhHkJMbx .kc { color: #6ab825; font-weight: bold } /* Keyword.Constant */
+.SZAhHkJMbx .kd { color: #6ab825; font-weight: bold } /* Keyword.Declaration */
+.SZAhHkJMbx .kn { color: #6ab825; font-weight: bold } /* Keyword.Namespace */
+.SZAhHkJMbx .kp { color: #6ab825 } /* Keyword.Pseudo */
+.SZAhHkJMbx .kr { color: #6ab825; font-weight: bold } /* Keyword.Reserved */
+.SZAhHkJMbx .kt { color: #6ab825; font-weight: bold } /* Keyword.Type */
+.SZAhHkJMbx .ld { color: #d0d0d0 } /* Literal.Date */
+.SZAhHkJMbx .m { color: #3677a9 } /* Literal.Number */
+.SZAhHkJMbx .s { color: #ed9d13 } /* Literal.String */
+.SZAhHkJMbx .na { color: #bbbbbb } /* Name.Attribute */
+.SZAhHkJMbx .nb { color: #24909d } /* Name.Builtin */
+.SZAhHkJMbx .nc { color: #447fcf; text-decoration: underline } /* Name.Class */
+.SZAhHkJMbx .no { color: #40ffff } /* Name.Constant */
+.SZAhHkJMbx .nd { color: #ffa500 } /* Name.Decorator */
+.SZAhHkJMbx .ni { color: #d0d0d0 } /* Name.Entity */
+.SZAhHkJMbx .ne { color: #bbbbbb } /* Name.Exception */
+.SZAhHkJMbx .nf { color: #447fcf } /* Name.Function */
+.SZAhHkJMbx .nl { color: #d0d0d0 } /* Name.Label */
+.SZAhHkJMbx .nn { color: #447fcf; text-decoration: underline } /* Name.Namespace */
+.SZAhHkJMbx .nx { color: #d0d0d0 } /* Name.Other */
+.SZAhHkJMbx .py { color: #d0d0d0 } /* Name.Property */
+.SZAhHkJMbx .nt { color: #6ab825; font-weight: bold } /* Name.Tag */
+.SZAhHkJMbx .nv { color: #40ffff } /* Name.Variable */
+.SZAhHkJMbx .ow { color: #6ab825; font-weight: bold } /* Operator.Word */
+.SZAhHkJMbx .w { color: #666666 } /* Text.Whitespace */
+.SZAhHkJMbx .mb { color: #3677a9 } /* Literal.Number.Bin */
+.SZAhHkJMbx .mf { color: #3677a9 } /* Literal.Number.Float */
+.SZAhHkJMbx .mh { color: #3677a9 } /* Literal.Number.Hex */
+.SZAhHkJMbx .mi { color: #3677a9 } /* Literal.Number.Integer */
+.SZAhHkJMbx .mo { color: #3677a9 } /* Literal.Number.Oct */
+.SZAhHkJMbx .sa { color: #ed9d13 } /* Literal.String.Affix */
+.SZAhHkJMbx .sb { color: #ed9d13 } /* Literal.String.Backtick */
+.SZAhHkJMbx .sc { color: #ed9d13 } /* Literal.String.Char */
+.SZAhHkJMbx .dl { color: #ed9d13 } /* Literal.String.Delimiter */
+.SZAhHkJMbx .sd { color: #ed9d13 } /* Literal.String.Doc */
+.SZAhHkJMbx .s2 { color: #ed9d13 } /* Literal.String.Double */
+.SZAhHkJMbx .se { color: #ed9d13 } /* Literal.String.Escape */
+.SZAhHkJMbx .sh { color: #ed9d13 } /* Literal.String.Heredoc */
+.SZAhHkJMbx .si { color: #ed9d13 } /* Literal.String.Interpol */
+.SZAhHkJMbx .sx { color: #ffa500 } /* Literal.String.Other */
+.SZAhHkJMbx .sr { color: #ed9d13 } /* Literal.String.Regex */
+.SZAhHkJMbx .s1 { color: #ed9d13 } /* Literal.String.Single */
+.SZAhHkJMbx .ss { color: #ed9d13 } /* Literal.String.Symbol */
+.SZAhHkJMbx .bp { color: #24909d } /* Name.Builtin.Pseudo */
+.SZAhHkJMbx .fm { color: #447fcf } /* Name.Function.Magic */
+.SZAhHkJMbx .vc { color: #40ffff } /* Name.Variable.Class */
+.SZAhHkJMbx .vg { color: #40ffff } /* Name.Variable.Global */
+.SZAhHkJMbx .vi { color: #40ffff } /* Name.Variable.Instance */
+.SZAhHkJMbx .vm { color: #40ffff } /* Name.Variable.Magic */
+.SZAhHkJMbx .il { color: #3677a9 } /* Literal.Number.Integer.Long */</style>
 <div class="codeblock">
-<div class="bUrLWlaaBv"><pre><span></span><span class="kd">class</span> <span class="nc">Quicksort</span><span class="p">{</span>
+<div class="SZAhHkJMbx"><pre><span></span><span class="kd">class</span> <span class="nc">Quicksort</span><span class="p">{</span>
         <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">quicksort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">bottom</span><span class="p">,</span> <span class="kt">int</span> <span class="n">top</span><span class="p">){</span>
         <span class="c1">// If the index of the bottom of the Array is greater than or equal to the index of the top </span>
         <span class="c1">// then it is an invalid array because it is empty or already sorted.</span>
@@ -150,7 +150,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </pre></div>
 </div>
 <br>
-<p>This code works differently than the image above. </p>
+<p>This code works differently than the image above.</p>
+<br>
+<br>
 <br>
 <div class="footnote" id="foot1"><a href="https://en.wikipedia.org/wiki/Quicksort" target="_blank">1. https://en.wikipedia.org/wiki/Quicksort</a></div>
 <br>

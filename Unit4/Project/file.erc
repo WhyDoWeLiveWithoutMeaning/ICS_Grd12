@@ -2,7 +2,7 @@
 ? The Quicksort Algorithm is a sorting algorithm known for being one of the fastest sorting algorithms out there. But before I explain how it works let me teach you some concepts to know. ?
 
 !3 Intro to Big O Notation !
-? Big O Notation is very important when talking about sorting algorithms. It is used to show how the runtime and the space requirements of an algorithm grow with the number of elements in the array. Lets look at the average Big O notation of other algorithms: s. ++ Bubble Sort: O(n^2). For the bubble sort as the number of elements grow the Big O grows fast showing that the more elements you have in an array the more resources and time it will take to sort it. == ++ Bogosort: Big((n+1)!). As you can see with the Bogosort (Which is the slowest sorting method) **GROWS VERY FAST** the more elements are added. == .s ? 
+? Big O Notation is very important when talking about sorting algorithms. It is used to show how the runtime and the space requirements of an algorithm grow with the number of elements in the array. Lets look at the average Big O notation of other algorithms: s. ++ Bubble Sort: O(n^2). For the bubble sort as the number of elements grow the Big O grows fast showing that the more elements you have in an array the more resources and time it will take to sort it. == ++ Bogosort: O((n+1)!). As you can see with the Bogosort (Which is the slowest sorting method) **GROWS VERY FAST** the more elements are added. == .s ? 
 ? Now that you know how Big O Notation works, Let's look at the Quicksort Algorithm! ?
 
 !3 The Quicksort Algorithm !
@@ -11,7 +11,7 @@
 !4 How does the Quicksort Algorithm use Partitioning? !
 ? The Quicksort algorithm firstly Partitions the array by picking the last element (The Pivot) and move any element that is larger than that number after the Pivot while keeping any numbers smaller before the Pivot. Then you simply repeat that process for each side of the pivot until you either have 0 or 1 element on the side of any Pivot. ?
 
-
+[https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Quicksort-diagram.svg/300px-Quicksort-diagram.svg.png]
 
 ? In the Image above you can see that we first set the Pivot to the last Element in the array (4). Then we proceed to scan the numbers from left to right and if we detect a number bigger than our pivot we swap the element before the pivot with the detected number and swap the pivot with the detected numbers new placement. Once we finish we repeat the process with each side of the pivot recursively until the elements are sorted. Once completed we will merge are the sorted sub arrays together and will have a completely sorted array. ?
 
@@ -66,7 +66,7 @@ class Quicksort{
 }
 ```
 
-? This code works differently than the image above. ?
+? This code works differently than the image above. This is the code that I talked about in the walkthrough ?
 
 
 
